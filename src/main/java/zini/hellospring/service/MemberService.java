@@ -1,5 +1,7 @@
 package zini.hellospring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import zini.hellospring.domain.Member;
 import zini.hellospring.repository.MemberRepository;
 import zini.hellospring.repository.MemoryMemberRepository;
@@ -8,9 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 // Test 자동 생성 -> Ctrl Shift T
+//@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
+    //@Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
