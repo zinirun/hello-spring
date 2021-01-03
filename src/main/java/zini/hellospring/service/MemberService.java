@@ -1,10 +1,7 @@
 package zini.hellospring.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import zini.hellospring.domain.Member;
 import zini.hellospring.repository.MemberRepository;
-import zini.hellospring.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
