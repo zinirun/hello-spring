@@ -3,6 +3,7 @@ package zini.hellospring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import zini.hellospring.aop.TimeTraceAop;
 import zini.hellospring.repository.JdbcMemberRepository;
 import zini.hellospring.repository.JdbcTemplateMemberRepository;
 import zini.hellospring.repository.JpaMemberRepository;
@@ -15,21 +16,27 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-    private EntityManager em;
+    private final MemberRepository memberRepository;
 
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    // @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository(){
-        return new JpaMemberRepository(em);
-    }
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
+
+    // Spring JPA에 등록했기 때문에 설정 필요 X
+//    @Bean
+//    public MemberRepository memberRepository(){
+//        return new JpaMemberRepository(em);
+//    }
 
 }
