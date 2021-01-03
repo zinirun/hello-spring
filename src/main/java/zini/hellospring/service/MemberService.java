@@ -1,5 +1,6 @@
 package zini.hellospring.service;
 
+import org.springframework.transaction.annotation.Transactional;
 import zini.hellospring.domain.Member;
 import zini.hellospring.repository.MemberRepository;
 
@@ -8,6 +9,7 @@ import java.util.Optional;
 
 // Test 자동 생성 -> Ctrl Shift T
 //@Service
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
